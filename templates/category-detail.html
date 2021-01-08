@@ -2,10 +2,10 @@
 
 {% extends 'base.html' %}
 {% load static %}
-{% block content %}
+
 <html>
 	<head>
-		<title>Future Imperfect by HTML5 UP</title>
+		<title>{{ category.name }}</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
@@ -514,9 +514,9 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 											<header>
 												<h3><a href="single.html">Vitae sed condimentum</a></h3>
 												<time class="published" datetime="2015-10-20">October 20, 2015</time>
-												<a href="#" class="author"><img src="{% images/avatar.jpg %}" alt="" /></a>
+												<a href="#" class="author"><img src="{% static 'images/avatar.jpg' %}" alt="" /></a>
 											</header>
-											<a href="single.html" class="image"><img src="{% images/pic04.jpg %}" alt="" /></a>
+											<a href="single.html" class="image"><img src="{% static 'images/pic04.jpg' %}" alt="" /></a>
 										</article>
 
 									<!-- Mini Post -->
@@ -597,7 +597,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 												<h3><a href="single.html">Congue ullam corper lorem ipsum dolor</a></h3>
 												<time class="published" datetime="2015-10-06">October 7, 2015</time>
 											</header>
-											<a href="single.html" class="image"><img src="{% images/pic12.jpg %}" alt="" /></a>
+											<a href="single.html" class="image"><img src="{% static 'images/pic12.jpg' %}" alt="" /></a>
 										</article>
 									</li>
 								</ul>
