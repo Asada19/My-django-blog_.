@@ -18,18 +18,32 @@ class Category(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=225)
     description = models.TextField()
-    posting_time = models.PositiveIntegerField()
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='recipes')
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recipes')
-    created = models.DateTimeField()
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='posts')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
+    created = models.DateField()
 
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('detail', kwargs={'pk': self.pk})
+
+    @property
+    def get_image(self):
+        return self.images.first()
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('detail', kwargs={'pk': self.pk})
+
 
 class Image(models.Model):
-    image = models.ImageField(upload_to='recipe')
+    image = models.ImageField(upload_to='posts')
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='images')
+
+    def __str__(self):
+        return self.image.url
 
 
 

@@ -11,6 +11,14 @@
 								<header>
 									<div class="title">
 										<h2><a href="#">Magna sed adipiscing</a></h2>
+										{% if messages %}
+										<ul class="messages">
+											{% for message in messages %}
+											<div class="alert alert-success" role="alert">{{ message }}</div>
+											{% endfor %}
+										</ul>
+										{% endif %}
+
 										<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
 									</div>
 									<div class="meta">
@@ -32,8 +40,8 @@
 
 						<!-- Pagination -->
 							<ul class="actions pagination">
-								<li><a href="" class="disabled button large previous">Previous Page</a></li>
-								<li><a href="#" class="button large next">Next Page</a></li>
+								<li><a href="" class="disabled button large previous">Предыдущая страница</a></li>
+								<li><a href="#" class="button large next">Следующая страница</a></li>
 							</ul>
 					</div>
 

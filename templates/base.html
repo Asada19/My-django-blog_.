@@ -21,7 +21,7 @@
 								{% for category in categories %}
 								<li><a href="{% url 'category' category.slug %}">{{ category }}</a></li>
 								{% endfor %}
-								<li><a href="#">Добавить личный пост</a></li>
+								<li><a href="{% url 'add-post' %}">Добавить личный пост</a></li>
 							</ul>
 
 						</nav>

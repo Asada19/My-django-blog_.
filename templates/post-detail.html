@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="#">{{ post.title }}</a></h2>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2015-11-01">{{ post.created }}</time>
+										<a href="#" class="author"><span class="name">{{ post.user }}</span><img src="{% static 'images/avatar.jpg' %}" alt="" /></a>
+									</div>
+								</header>
+								<span class="image featured"><img src="{{ post.get_image }}"style="width:800px; height:400px;" alt="" /></span>
+								{% for image in images %}
+								<img src="{{ image }}" style="width:300px; height:200px;" class="img-thumbnail" alt="...">
+								{% endfor %}
+
+								<p>{{ post.description }}</p>
+								<a href="{% url 'update-post' post.id %}"><i class="fas fa-edit"></i></a>
+								<a href="{% url 'delete-post' post.id %}"><i class="fas fa-trash"></i></a>
+
+								<footer>
+									<ul class="stats">
+										<li><a href="#" class="icon solid fa-heart">28</a></li>
+										<li><a href="#" class="icon solid fa-comment">128</a></li>
+									</ul>
+								</footer>
+							</article>
+
+						<!-- Pagination -->
+							<ul class="actions pagination">
+								<li><a href="" class="disabled button large previous">Предыдущая страница</a></li>
+								<li><a href="#" class="button large next">Следующая страница</a></li>
+							</ul>
+					</div>
+
+{% endblock %}
