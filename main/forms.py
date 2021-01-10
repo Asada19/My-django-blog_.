@@ -29,3 +29,5 @@ class BaseImageFormSet(BaseModelFormSet):
             image = form['image'].data
             if not image:
                 raise (forms.ValidationError("Нужна картинка"))
+
+

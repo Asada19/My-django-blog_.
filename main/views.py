@@ -65,11 +65,26 @@ def delete_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == 'POST':
         post.delete()
-        messages.add_message(request, messages.SUCCESS,'Успешно удалено!')
+        messages.add_message(request, messages.SUCCESS, 'Успешно удалено!')
         return redirect('home')
     return render(request, 'delete-post.html')
 
 
+# def post_search(request):
+#     form = SearchForm()
+#     if 'query' in request.GET:
+#         form = SearchForm(request.GET)
+#         if form.is_valid():
+#             cd = form.cleaned_data
+#             results = SearchQuerySet().models(Post).filter(content=cd['query']).load_all()
+#             # count total results
+#             total_results = results.count()
+#     return render(request,
+#                   'blog/post/search.html',
+#                   {'form': form,
+#                    'cd': cd,
+#                    'results': results,
+#                    'total_results': total_results})
 
 
 
