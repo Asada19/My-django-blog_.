@@ -1,12 +1,11 @@
 from django.db import models
-
 from account.models import User
 
 
 class Category(models.Model):
     slug = models.SlugField(primary_key=True, max_length=50)
     name = models.CharField(max_length=10)
-    image = models.ImageField(upload_to='categories', blank=True, null=True)
+    image = models.ImageField(upload_to='categories', blank=True, null=True, default="images/pic01.jpg")
     parent = models.ForeignKey('self', related_name='children', null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -33,9 +32,9 @@ class Post(models.Model):
     def get_image(self):
         return self.images.first()
 
-    def get_absolute_url(self):
-        from django.urls import reverse
-        return reverse('detail', kwargs={'pk': self.pk})
+    # def get_absolute_url(self):
+    #     from django.urls import reverse
+    #     return reverse('detail', kwargs={'pk': self.pk})
 
 
 class Image(models.Model):
@@ -46,4 +45,17 @@ class Image(models.Model):
         return self.image.url
 
 
+class Comment(models.Model):
+    comment = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    name = models.CharField(max_length=255)
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+
+
+class Meta:
+    ordering = ['created_on']
+
+
+def __str__(self):
+    return 'Comment {} by {}'.format(self.body, self.name)
 

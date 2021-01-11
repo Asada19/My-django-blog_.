@@ -8,27 +8,27 @@
 
 						<!-- Post -->
 							<article class="post">
-								<header>
+									<header>
 									<div class="title">
-										<h2><a href="#">Magna sed adipiscing</a></h2>
+										<h2><a href="#">Колхоз лучше Microsoft!</a></h2>
 										{% if messages %}
 										<ul class="messages">
 											{% for message in messages %}
-											<div class="alert alert-success" role="alert">{{ message .}}</div>
+											<div class="alert alert-success" role="alert">{{ message }}</div>
 											{% endfor %}
 										</ul>
 										{% endif %}
 
-										<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
+											<p>Любой кто родился уже программист на уровне выключателя</p>
 									</div>
 									<div class="meta">
 										<time class="published" datetime="2015-11-01">January 9, 2021</time>
-										<a href="#" class="author"><span class="name">Jane Doe</span><img src="{% static 'images/avatar.jpg' %}" alt="" /></a>
+										<a href="{% url 'profile' %}" class="author"><span class="name">{{ user.username }}</span><img src="{% static 'images/avatar.jpg' %}" alt="" /></a>
 									</div>
 								</header>
 								<span class="image featured"><img src="{% static 'images/pic01.jpg' %}" alt="" /></span>
-								<p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-								<p>Nunc quis dui scelerisque, scelerisque urna ut, dapibus orci. Sed vitae condimentum lectus, ut imperdiet quam. Maecenas in justo ut nulla aliquam sodales vel at ligula. Sed blandit diam odio, sed fringilla lectus molestie sit amet. Praesent eu tortor viverra lorem mattis pulvinar feugiat in turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce ullamcorper tellus sit amet mattis dignissim. Phasellus ut metus ligula. Curabitur nec leo turpis. Ut gravida purus quis erat pretium, sed pellentesque massa elementum. Fusce vestibulum porta augue, at mattis justo. Integer sed sapien fringilla, dapibus risus id, faucibus ante. Pellentesque mattis nunc sit amet tortor pellentesque, non placerat neque viverra. </p>
+								<p>Каждый год преподносит нам, аграриям, какие-то «сюрпризы»: то погода «порадует» градом или засухой, то какая-нибудь директива сверху разрушит все планы на экономический рывок, - говорит председатель СПК колхоз-племзавод «Казьминский», заслуженный работник сельского хозяйства РФ, Герой Труда Ставрополья Сергей ШУМСКИЙ. Но, несмотря на иронию, общий настрой у руководителя вполне оптимистичный. - Итоговые результаты мы ещё не подводили, поэтому об экономике говорить пока рано. Одно скажу точно: что касается работы всего коллектива и особенно специалистов, то мы её выполнили на все сто, собрав отличные урожаи по всем сельхозкультурам. Один из беспрекословных лидеров </p>
+								<p>сельхозпроизводства на Ставрополье, предприятие входит в топ-100 лучших хозяйств страны. Пятый год подряд колхоз занимает первое место по урожайности пшеницы на Кубани. 82 центнера с гектара — таков результат жатвы-2016.</p>
 								<footer>
 									<ul class="stats">
 										<li><a href="#">General</a></li>
@@ -39,10 +39,7 @@
 							</article>
 
 						<!-- Pagination -->
-							<ul class="actions pagination">
-								<li><a href="" class="disabled button large previous">Предыдущая страница</a></li>
-								<li><a href="#" class="button large next">Следующая страница</a></li>
-							</ul>
+
 					</div>
 
 
@@ -53,8 +50,8 @@
 							<section id="intro">
 								<a href="#" class="logo"><img src="{% static 'images/logo.jpg' %}" alt="" /></a>
 								<header>
-									<h2>Future Imperfect</h2>
-									<p>Another fine responsive site template by <a href="http://html5up.net">HTML5 UP</a></p>
+									<h2>Колхозные воины!</h2>
+									<p>Мировая колхозная паутина <a href="http://html5up.net">HTML5 UP</a></p>
 								</header>
 							</section>
 

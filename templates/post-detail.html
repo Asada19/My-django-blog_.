@@ -23,6 +23,29 @@
 								{% endfor %}
 
 								<p>{{ post.description }}</p>
+								<br/>
+									<h3>Comments...</h3>
+									<br/>
+									{% if not post.comments.all %}
+										Пока нет комментов	 <a href=”#”>
+										Добавьте коммент</a>
+									{% else %}
+
+										{% for comment in post.comments.all %}
+											<strong>
+											{{ comment.name}}
+											{{ comment.date_added }}
+											</strong>
+											<br/>
+											{{ comment.body }}
+									<br/><br/>
+										{% endfor %}
+									{% endif %}
+
+									<br/>
+									<a href=””>Добавьте комментарий</a>
+									<br/>
+
 								<a href="{% url 'update-post' post.id %}"><i class="fas fa-edit"></i></a>
 								<a href="{% url 'delete-post' post.id %}"><i class="fas fa-trash"></i></a>
 
@@ -34,11 +57,6 @@
 								</footer>
 							</article>
 
-						<!-- Pagination -->
-							<ul class="actions pagination">
-								<li><a href="" class="disabled button large previous">Предыдущая страница</a></li>
-								<li><a href="#" class="button large next">Следующая страница</a></li>
-							</ul>
 					</div>
 
 {% endblock %}

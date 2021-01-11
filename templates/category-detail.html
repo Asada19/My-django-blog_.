@@ -31,10 +31,10 @@
 									</div>
 									<div class="meta">
 										<time class="published" datetime="2015-11-01">November 1, 2020</time>
-										<a href="#" class="author"><span class="name">Asada Rain</span><img src="{% static 'images/avatar.jpg' %}" alt="" /></a>
+										<a href="{% url 'profile' %}" class="author"><span class="name">{{ user.username }}</span><img src="{{ user.image.url }}" alt="" /></a>
 									</div>
 								</header>
-								<a href="single.html" class="image featured"><img src="{{ category.image.url }}"alt="" /></a>
+								<a href="single.html" class="image featured"><img src="{{ category.image.url }}"style="width:200; height:100;" alt="" /></a>
 								<p>Something interestiing fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
 								<footer>
 									<ul class="actions">
@@ -74,11 +74,6 @@
 							</section>
 
 		<!-- Pagination -->
-							<ul class="actions pagination">
-								<li><a href="" class="disabled button large previous">Предыдущая страница</a></li>
-								<li><a href="#" class="button large next">Следующая страница</a></li>
-							</ul>
-
 
 			</div>
 

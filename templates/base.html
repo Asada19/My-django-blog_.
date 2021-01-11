@@ -29,8 +29,8 @@
 							<ul>
 								<li class="search">
 									<a class="fa-search" href="#search">Search</a>
-									<form id="search" method="get" action="#">
-										<input type="text" name="query" placeholder="Search" />
+									<form id="search" method="get" action="{% url 'home' %}">
+										<input type="text" name="q" placeholder="Search" />
 									</form>
 								</li>
 								<li class="menu">
@@ -45,8 +45,8 @@
 
 						<!-- Search -->
 							<section>
-								<form class="search" method="get" action="#">
-									<input type="text" name="query" placeholder="Search" />
+								<form class="search" method="get" action="{% url 'home' %}">
+									<input type="text" name="q" placeholder="Search" />
 								</form>
 							</section>
 
@@ -56,8 +56,13 @@
 						<!-- Actions -->
 							<section>
 								<ul class="actions stacked">
-									<li><a href="#" class="button large fit">Log In</a></li>
-
+									{% if not request.user.is_authenticated %}
+									<li><a href="{% url 'register' %}" class="button large fit">Registration</a></li>
+									<li><a href="{% url 'login' %}" class="button large fit">Log In</a></li>
+									{% else %}
+									<li><a href="{% url 'profile' %}" class="button large fit">My profile</a></li>
+									<li><a href="{% url 'logout' %}" class="button large fit">Log out</a></li>
+									{% endif %}
 								</ul>
 							</section>
 
@@ -65,6 +70,12 @@
 
 <!-- Main -->
 					<div id="main">
+							<ul class="actions pagination">
+								<li><a href="/blogging/category/POLITIC/" class="button large next">1</a></li>
+								<li><a href="/blogging/category/comedy/" class="button large next">2</a></li>
+								<li><a href="/blogging/category/Kriminal/" class="button large next">3</a></li>
+							</ul>
+
 
 
 
