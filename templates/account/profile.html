@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Banner -->
+<section id="banner">
+    <div class="content">
+        <header>
+            <h1>{{ user.username }}</h1>
+            <p>User profile</p>
+        </header>
+        <p>{{ user.post.count }}</p>
+        <p>{{ user.date_joined }}</p>
+
+    </div>
+    <span class="image object">
+        <img src="{{ request.user.image.url }}" style="width: 200px; height: 200px;" alt="" />
+    </span>
+</section>
+
+{% endblock %}
