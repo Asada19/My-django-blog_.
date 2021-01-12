@@ -1,7 +1,7 @@
 from django import forms
 from datetime import datetime
 
-from .models import Post, Image
+from .models import *
 from django.forms.models import BaseModelFormSet
 
 
@@ -17,7 +17,7 @@ class PostForm(forms.ModelForm):
 class ImageForm(forms.ModelForm):
     class Meta:
         model = Image
-        fields = ('image', )
+        fields = ('image',)
 
 
 class BaseImageFormSet(BaseModelFormSet):
@@ -30,3 +30,8 @@ class BaseImageFormSet(BaseModelFormSet):
                 raise (forms.ValidationError("Нужна картинка"))
 
 
+class CommentForm(forms.ModelForm):
+
+    class Meta:
+        model = Comment
+        fields = ('author', 'text',)

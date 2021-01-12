@@ -10,9 +10,22 @@ from django.urls import reverse_lazy
 from django.utils import timezone
 from django.views.generic import ListView, DetailView, DeleteView
 
-from .forms import PostForm, ImageForm, BaseImageFormSet
+from .forms import *
 from .models import *
 from .permissions import UserHasPermissionMixin
+
+
+def category_detail(request, slug):
+    category = Category.objects.get(slug=slug)
+    posts = Post.objects.filter(category_id=slug)
+    return render(request, 'category-detail.html', locals())
+
+
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    image = post.get_image
+    images = post.images.exclude(id=image.id)
+    return render(request, 'post-detail.html', locals())
 
 
 def index(request):
@@ -129,3 +142,29 @@ class DeletePostView(UserHasPermissionMixin, DeleteView):
         self.object.delete()
         messages.add_message(request, messages.SUCCESS, 'Ваш пост удален!')
         return HttpResponseRedirect(success_url)
+
+
+def add_comment_to_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return redirect('detail', pk=post.pk)
+    else:
+        form = CommentForm()
+    return render(request, 'add_comment_to_post.html', {'form': form})
+
+@login_required
+def comment_approve(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    comment.approve()
+    return redirect('detail', pk=comment.post.pk)
+
+@login_required
+def comment_remove(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    comment.delete()
+    return redirect('detail', pk=comment.post.pk)
